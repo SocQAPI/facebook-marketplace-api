@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "platform": "facebook-marketplace",
+  "platformName": "Facebook Marketplace",
+  "baseUrl": "https://api.socq.ai",
+  "creditUsd": 0.005,
+  "endpoints": [
+    {
+      "publicId": "facebook-marketplace/location-search",
+      "name": "Facebook Marketplace Location Search API",
+      "description": "Find Facebook Marketplace location candidates from a city, region, neighborhood, or place-name query, returning names, place types, addresses, and coordinates in normalized records.",
+      "method": "POST",
+      "path": "/v1/facebook-marketplace/location-search",
+      "payload": "payloads/location-search.json",
+      "launchedAt": "2026-07-20",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 10,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/facebook-marketplace/location-search",
+      "landingUrl": "https://socq.ai/apis/facebook-marketplace/location-search",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Search query."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "publicId": "facebook-marketplace/search",
+      "name": "Facebook Marketplace Search API",
+      "description": "Search public Facebook Marketplace listings by keyword and coordinates, returning titles, prices, locations, images, status fields, and source URLs as normalized records.",
+      "method": "POST",
+      "path": "/v1/facebook-marketplace/search",
+      "payload": "payloads/search.json",
+      "launchedAt": "2026-07-20",
+      "price": "0.7 credits ($0.0035) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.7,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/facebook-marketplace/search",
+      "landingUrl": "https://socq.ai/apis/facebook-marketplace/search",
+      "required": [
+        "latitude",
+        "longitude",
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "availability": {
+            "type": "string",
+            "minLength": 1
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date_listed": {
+            "type": "string",
+            "minLength": 1
+          },
+          "delivery_method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "latitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "max_price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "min_price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Search query."
+          },
+          "radius_km": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "sort_by": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude",
+          "query"
+        ]
+      }
+    },
+    {
+      "publicId": "facebook-marketplace/item",
+      "name": "Facebook Marketplace Item API",
+      "description": "Collect public Facebook Marketplace item details from known listing URLs, returning normalized listing, seller, price, location, media, attribute, delivery, and availability fields.",
+      "method": "POST",
+      "path": "/v1/facebook-marketplace/item",
+      "payload": "payloads/item.json",
+      "launchedAt": "2026-07-20",
+      "price": "0.6 credits ($0.003) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.6,
+        "estimateResultCount": 1,
+        "estimateInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/facebook-marketplace/item",
+      "landingUrl": "https://socq.ai/apis/facebook-marketplace/item",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    }
+  ]
+}

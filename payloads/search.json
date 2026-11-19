@@ -1,0 +1,14 @@
+{
+  "query": "bike",
+  "latitude": 30.2677,
+  "longitude": -97.7475,
+  "results_limit": 100,
+  "radius_km": 65,
+  "min_price": 100,
+  "max_price": 500,
+  "sort_by": "creation_time_descend",
+  "delivery_method": "local_pickup",
+  "condition": "used_good",
+  "date_listed": "last_7_days",
+  "availability": "available"
+}

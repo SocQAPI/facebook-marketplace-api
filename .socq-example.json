@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "2.0.0",
+  "kind": "platform",
+  "platform": "facebook-marketplace",
+  "endpointCount": 3,
+  "endpoints": [
+    "facebook-marketplace/location-search",
+    "facebook-marketplace/search",
+    "facebook-marketplace/item"
+  ],
+  "landingPage": "https://socq.ai/apis/facebook-marketplace",
+  "docsPage": "https://docs.socq.ai/api-manual/facebook-marketplace/overview",
+  "generatedFrom": "SocQAPI/socq-example-template"
+}
